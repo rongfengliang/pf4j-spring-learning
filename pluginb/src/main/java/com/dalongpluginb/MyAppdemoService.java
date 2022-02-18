@@ -16,7 +16,7 @@ public class MyAppdemoService {
         loginList.forEach(new Consumer<UserLogin>() {
             @Override
             public void accept(UserLogin userLogin) {
-                System.out.println(userLogin.token("dalong","deoapp"));
+                System.out.println(userLogin.getClass().getClassLoader().toString()+userLogin.getClass().getName()+" bean init "+userLogin.token("dalong","deoapp"));
             }
         });
     }
