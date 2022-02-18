@@ -13,7 +13,8 @@ public class LoginB implements UserLogin {
     private  JdbcTemplate jdbcTemplate;
     @Override
     public String token(String name, String password) {
-        System.out.println(this.getClass().getClassLoader().toString());
+        System.out.println("LoginB"+this.getClass().getClassLoader().toString()+"from pluginb");
+        System.out.println("jdbcTemplate"+jdbcTemplate.getClass().getClassLoader()+"from classloader b");
 //        JdbcTemplate jdbcTemplate= PluginBConfig.applicationContext.getParent().getBean("jdbcTemplate",JdbcTemplate.class);
         return jdbcTemplate.queryForList("SELECT  * from information_schema.TABLES").get(0).toString();
 //        return  myDemo.demoApp("name",password);

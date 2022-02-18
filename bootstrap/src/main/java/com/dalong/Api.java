@@ -29,6 +29,7 @@ public class Api {
     }
     @GetMapping(value ="/sql")
     public  String login2(){
+        System.out.println("jdbcTemplate"+jdbcTemplate.getClass().getClassLoader()+"from classloader bootstrap");
         return jdbcTemplate.queryForList("SELECT  * from information_schema.`COLUMNS`").get(0).toString();
     }
     @GetMapping(value ="/beans")

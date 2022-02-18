@@ -7,7 +7,7 @@ import org.pf4j.Extension;
 public class LoginA implements UserLogin {
     @Override
     public String token(String name, String password) {
-        System.out.println(this.getClass().getClassLoader().toString());
+        System.out.println(this.getClass().getClassLoader().toString()+"from plugina");
         return  String.format("LoginA %s-%s",name,password);
     }
 }
