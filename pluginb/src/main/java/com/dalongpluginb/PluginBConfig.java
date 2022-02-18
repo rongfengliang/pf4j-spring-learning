@@ -20,7 +20,7 @@ public class PluginBConfig implements ApplicationContextAware {
     public DataSource dataSource(){
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        config.setJdbcUrl("jdbc:mysql://localhost:3306?characterEncoding=UTF-8&serverTimezone=CTT");
+        config.setJdbcUrl("jdbc:mysql://mysql:3306?characterEncoding=UTF-8&serverTimezone=CTT");
         config.setUsername("admin");
         config.setPassword("admin");
         HikariDataSource hikariDataSource = new HikariDataSource(config);

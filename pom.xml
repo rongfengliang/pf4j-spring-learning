@@ -12,6 +12,7 @@
         <module>service-contract</module>
         <module>plugina</module>
         <module>pluginb</module>
+        <module>pluginc</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

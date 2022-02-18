@@ -1,5 +1,14 @@
 version: "3"
 services:
+  bootstrap:
+    build: ./
+    volumes:
+      - ./pluginb/target/pluginb-1.0-SNAPSHOT.jar:/opt/plugins/pluginb-1.0-SNAPSHOT.jar
+      - ./plugina/target/plugina-1.0-SNAPSHOT.jar:/opt/plugins/plugina-1.0-SNAPSHOT.jar
+      - ./pluginc/target/pluginc-1.0-SNAPSHOT.jar:/opt/plugins/pluginc-1.0-SNAPSHOT.jar
+    ports:
+      - "8080:8080"
+      - "8849:8849"
   mysql:
     image: mysql:8.0.27
     ports:

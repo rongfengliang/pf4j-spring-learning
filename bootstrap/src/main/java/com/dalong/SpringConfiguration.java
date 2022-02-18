@@ -20,7 +20,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.pf4j.spring.SpringPluginManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -32,6 +32,7 @@ import javax.sql.DataSource;
 public class SpringConfiguration {
 
     @Bean
+    @Lazy
     public SpringPluginManager pluginManager() {
         return new SpringPluginManager();
     }
@@ -39,7 +40,7 @@ public class SpringConfiguration {
     public DataSource dataSource(){
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        config.setJdbcUrl("jdbc:mysql://localhost:3307?useLocalSessionState=true&characterEncoding=UTF-8&serverTimezone=CTT");
+        config.setJdbcUrl("jdbc:mysql://mysq2l:3306?useLocalSessionState=true&characterEncoding=UTF-8&serverTimezone=CTT");
         config.setUsername("root");
         config.setPassword("admin22");
         HikariDataSource hikariDataSource = new HikariDataSource(config);
