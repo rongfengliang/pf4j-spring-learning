@@ -40,7 +40,7 @@ public class SpringConfiguration {
     public DataSource dataSource(){
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        config.setJdbcUrl("jdbc:mysql://mysq2l:3306?useLocalSessionState=true&characterEncoding=UTF-8&serverTimezone=CTT");
+        config.setJdbcUrl("jdbc:mysql://mysq2l:3307?useLocalSessionState=true&characterEncoding=UTF-8&serverTimezone=CTT");
         config.setUsername("root");
         config.setPassword("admin22");
         HikariDataSource hikariDataSource = new HikariDataSource(config);

@@ -6,6 +6,7 @@ import org.pf4j.Extension;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.Arrays;
@@ -20,11 +21,15 @@ public class LoginC implements UserLogin {
     @Lazy
     private  JdbcTemplate jdbcTemplate;
     Hashids hashids = new Hashids("demo");
+
+    @Autowired
+    private Environment env;
     @Override
     public String token(String name, String password) {
+        String myConfigProperties= env.getProperty("age");
+        System.out.println("from pluginc conf env:"+myConfigProperties.toString());
         System.out.println("Loginc"+this.getClass().getClassLoader().toString()+"from pluginc");
         System.out.println("jdbcTemplate"+jdbcTemplate.getClass().getClassLoader()+"from classloader c");
-//        JdbcTemplate jdbcTemplate2= PluginCConfig.applicationContext.getParent().getBean("jdbcTemplate",JdbcTemplate.class);
         System.out.println("LoginC"+this.getClass().getClassLoader().toString()+"size:========"+ BeanFactoryUtils.beanNamesForTypeIncludingAncestors(PluginCConfig.applicationContext,UserLogin.class).length);
         Arrays.stream(BeanFactoryUtils.beanNamesForTypeIncludingAncestors(PluginCConfig.applicationContext,UserLogin.class)).collect(Collectors.toList()).forEach(new Consumer<String>() {
             @Override
