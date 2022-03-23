@@ -17,7 +17,7 @@ public class pluginC extends SpringPlugin {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.setClassLoader(getWrapper().getPluginClassLoader());
         applicationContext.setParent(applicationContextRoot);
-        applicationContext.register(PluginCConfig.class,MyConfigProperties.class, ConfigurationPropertiesBindingPostProcessor.class);
+        applicationContext.register(PluginCConfig.class,ConfigurationPropertiesBindingPostProcessor.class);
         applicationContext.refresh();
         MyConfigProperties myConfigProperties= applicationContext.getBean(MyConfigProperties.class);
         System.out.println("from pluginc conf:"+myConfigProperties.toString());

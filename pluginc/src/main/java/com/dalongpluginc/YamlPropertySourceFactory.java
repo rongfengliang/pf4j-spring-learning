@@ -15,7 +15,6 @@ public class YamlPropertySourceFactory implements PropertySourceFactory {
             throws IOException {
         YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
         factory.setResources(encodedResource.getResource());
-
         Properties properties = factory.getObject();
         return new PropertiesPropertySource(encodedResource.getResource().getFilename(), properties);
     }

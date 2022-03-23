@@ -1,2 +1,3 @@
-name: dalong
-age: 33
+demoapp:
+   name: demo
+   age: 333

@@ -1,14 +1,12 @@
 package com.dalongpluginc;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-
+@ConfigurationProperties(prefix = "demoapp")
 @Configuration
-@ConfigurationProperties(prefix = "yaml")
-@PropertySource(name ="dalongdemo",value = "classpath:app.yaml")
+@PropertySource(name ="dalongdemo",value = "classpath:app.yaml",factory = YamlPropertySourceFactory.class)
 public class MyConfigProperties {
     private   String name;
     private   int age;

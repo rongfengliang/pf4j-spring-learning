@@ -27,6 +27,7 @@ public class LoginC implements UserLogin {
     @Override
     public String token(String name, String password) {
         String myConfigProperties= env.getProperty("age");
+        System.out.println(env.toString());
         System.out.println("from pluginc conf env:"+myConfigProperties.toString());
         System.out.println("Loginc"+this.getClass().getClassLoader().toString()+"from pluginc");
         System.out.println("jdbcTemplate"+jdbcTemplate.getClass().getClassLoader()+"from classloader c");

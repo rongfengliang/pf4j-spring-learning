@@ -2,6 +2,7 @@ package com.dalongpluginc;
 
 import com.dalong.UserLogin;
 import org.springframework.beans.BeansException;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.ConfigurationClassPostProcessor;
 import java.util.List;
 
 @Configuration
+@EnableConfigurationProperties(MyConfigProperties.class)
 public class PluginCConfig implements ApplicationContextAware {
 
     public   static ApplicationContext applicationContext;
